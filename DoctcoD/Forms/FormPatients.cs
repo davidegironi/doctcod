@@ -231,6 +231,7 @@ namespace DG.DoctcoD.Forms
             LanguageHelper.AddComponent(label_tabPatientsTreatments_filterfulfilled);
             LanguageHelper.AddComponent(label_tabPatientsTreatments_filterpaid);
             LanguageHelper.AddComponent(button_tabPatientsTreatments_filterprint);
+            LanguageHelper.AddComponent(button_tabPatientsTreatments_selectedprint);
             LanguageHelper.AddComponent(dateDataGridViewTextBoxColumn1, this.GetType().Name, "HeaderText");
             LanguageHelper.AddComponent(treatmentDataGridViewTextBoxColumn, this.GetType().Name, "HeaderText");
             LanguageHelper.AddComponent(isfulfilledDataGridViewCheckBoxColumn, this.GetType().Name, "HeaderText");
@@ -1860,7 +1861,7 @@ namespace DG.DoctcoD.Forms
         }
 
         /// <summary>
-        /// Print treatments for this patient
+        /// Print treatments filtered for this patient
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -1891,6 +1892,40 @@ namespace DG.DoctcoD.Forms
 
                 //do print
                 PrintPatientsTreatments(patients_id, patientstreatmentsl);
+            }
+        }
+
+        /// <summary>
+        /// Print treatment selected for this patient
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_tabPatientsTreatments_selectedprint_Click(object sender, EventArgs e)
+        {
+            int patients_id = -1;
+            if (vPatientsBindingSource.Current != null)
+            {
+                patients_id = (((DataRowView)vPatientsBindingSource.Current).Row).Field<int>("patients_id");
+            }
+
+            if (patients_id != -1)
+            {
+                int patientstreatments_id = -1;
+                if (vPatientsTreatmentsBindingSource.Current != null)
+                {
+                    patientstreatments_id = (((DataRowView)vPatientsTreatmentsBindingSource.Current).Row).Field<int>("patientstreatments_id");
+                }
+
+                if (patientstreatments_id != -1)
+                {
+                    //get predicate
+                    Expression<Func<patientstreatments, bool>> predicate = GetDataSourceList_tabPatientsTreatmentsPredicate(patients_id);
+                    predicate = predicate.And(r => r.patientstreatments_id == patientstreatments_id);
+                    patientstreatments[] patientstreatmentsl = _doctcodModel.PatientsTreatments.List(predicate).ToArray();
+
+                    //do print
+                    PrintPatientsTreatments(patients_id, patientstreatmentsl);
+                }
             }
         }
 

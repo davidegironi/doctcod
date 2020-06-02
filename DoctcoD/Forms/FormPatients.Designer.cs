@@ -203,12 +203,14 @@
             this.vPatientsMedicalrecordsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage_tabPatientsTreatments = new System.Windows.Forms.TabPage();
             this.panel_tabPatientsTreatments_filters = new System.Windows.Forms.Panel();
+            this.button_tabPatientsTreatments_selectedprint = new System.Windows.Forms.Button();
             this.button_tabPatientsTreatments_filterprint = new System.Windows.Forms.Button();
             this.comboBox_tabPatientsTreatments_filterpaid = new System.Windows.Forms.ComboBox();
             this.label_tabPatientsTreatments_filterpaid = new System.Windows.Forms.Label();
             this.comboBox_tabPatientsTreatments_filterfulfilled = new System.Windows.Forms.ComboBox();
             this.label_tabPatientsTreatments_filterfulfilled = new System.Windows.Forms.Label();
             this.panel_tabPatientsTreatments_data = new System.Windows.Forms.Panel();
+            this.button_tabPatientsTreatments_descriptionform = new System.Windows.Forms.Button();
             this.patientstreatments_descriptionTextBox = new DG.MiniHTMLTextBox.MiniHTMLTextBox();
             this.patientstreatmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.descriptiontemplatestreatments_idLabel = new System.Windows.Forms.Label();
@@ -406,7 +408,6 @@
             this.comboBox_filterArchived = new System.Windows.Forms.ComboBox();
             this.invoicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.estimatesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button_tabPatientsTreatments_descriptionform = new System.Windows.Forms.Button();
             this.panel_data.SuspendLayout();
             this.tabControl_main.SuspendLayout();
             this.tabPage_tabPatients.SuspendLayout();
@@ -1994,6 +1995,7 @@
             // 
             // panel_tabPatientsTreatments_filters
             // 
+            this.panel_tabPatientsTreatments_filters.Controls.Add(this.button_tabPatientsTreatments_selectedprint);
             this.panel_tabPatientsTreatments_filters.Controls.Add(this.button_tabPatientsTreatments_filterprint);
             this.panel_tabPatientsTreatments_filters.Controls.Add(this.comboBox_tabPatientsTreatments_filterpaid);
             this.panel_tabPatientsTreatments_filters.Controls.Add(this.label_tabPatientsTreatments_filterpaid);
@@ -2004,9 +2006,19 @@
             this.panel_tabPatientsTreatments_filters.Size = new System.Drawing.Size(540, 29);
             this.panel_tabPatientsTreatments_filters.TabIndex = 14;
             // 
+            // button_tabPatientsTreatments_selectedprint
+            // 
+            this.button_tabPatientsTreatments_selectedprint.Location = new System.Drawing.Point(356, 2);
+            this.button_tabPatientsTreatments_selectedprint.Name = "button_tabPatientsTreatments_selectedprint";
+            this.button_tabPatientsTreatments_selectedprint.Size = new System.Drawing.Size(100, 23);
+            this.button_tabPatientsTreatments_selectedprint.TabIndex = 6;
+            this.button_tabPatientsTreatments_selectedprint.Text = "Print Selected";
+            this.button_tabPatientsTreatments_selectedprint.UseVisualStyleBackColor = true;
+            this.button_tabPatientsTreatments_selectedprint.Click += new System.EventHandler(this.button_tabPatientsTreatments_selectedprint_Click);
+            // 
             // button_tabPatientsTreatments_filterprint
             // 
-            this.button_tabPatientsTreatments_filterprint.Location = new System.Drawing.Point(462, 3);
+            this.button_tabPatientsTreatments_filterprint.Location = new System.Drawing.Point(462, 2);
             this.button_tabPatientsTreatments_filterprint.Name = "button_tabPatientsTreatments_filterprint";
             this.button_tabPatientsTreatments_filterprint.Size = new System.Drawing.Size(75, 23);
             this.button_tabPatientsTreatments_filterprint.TabIndex = 5;
@@ -2088,6 +2100,17 @@
             this.panel_tabPatientsTreatments_data.Name = "panel_tabPatientsTreatments_data";
             this.panel_tabPatientsTreatments_data.Size = new System.Drawing.Size(540, 404);
             this.panel_tabPatientsTreatments_data.TabIndex = 13;
+            // 
+            // button_tabPatientsTreatments_descriptionform
+            // 
+            this.button_tabPatientsTreatments_descriptionform.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_tabPatientsTreatments_descriptionform.Location = new System.Drawing.Point(496, 127);
+            this.button_tabPatientsTreatments_descriptionform.Name = "button_tabPatientsTreatments_descriptionform";
+            this.button_tabPatientsTreatments_descriptionform.Size = new System.Drawing.Size(35, 15);
+            this.button_tabPatientsTreatments_descriptionform.TabIndex = 59;
+            this.button_tabPatientsTreatments_descriptionform.Text = "^";
+            this.button_tabPatientsTreatments_descriptionform.UseVisualStyleBackColor = true;
+            this.button_tabPatientsTreatments_descriptionform.Click += new System.EventHandler(this.button_tabPatientsTreatments_descriptionform_Click);
             // 
             // patientstreatments_descriptionTextBox
             // 
@@ -4136,17 +4159,6 @@
             // 
             this.estimatesBindingSource.DataSource = typeof(DG.DoctcoD.Model.Entity.estimates);
             // 
-            // button_tabPatientsTreatments_descriptionform
-            // 
-            this.button_tabPatientsTreatments_descriptionform.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_tabPatientsTreatments_descriptionform.Location = new System.Drawing.Point(496, 127);
-            this.button_tabPatientsTreatments_descriptionform.Name = "button_tabPatientsTreatments_descriptionform";
-            this.button_tabPatientsTreatments_descriptionform.Size = new System.Drawing.Size(35, 15);
-            this.button_tabPatientsTreatments_descriptionform.TabIndex = 59;
-            this.button_tabPatientsTreatments_descriptionform.Text = "^";
-            this.button_tabPatientsTreatments_descriptionform.UseVisualStyleBackColor = true;
-            this.button_tabPatientsTreatments_descriptionform.Click += new System.EventHandler(this.button_tabPatientsTreatments_descriptionform_Click);
-            // 
             // FormPatients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4634,5 +4646,6 @@
         private System.Windows.Forms.ComboBox descriptiontemplatestreatments_idComboBox;
         private MiniHTMLTextBox.MiniHTMLTextBox patientstreatments_descriptionTextBox;
         private System.Windows.Forms.Button button_tabPatientsTreatments_descriptionform;
+        private System.Windows.Forms.Button button_tabPatientsTreatments_selectedprint;
     }
 }

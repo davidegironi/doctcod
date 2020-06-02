@@ -85,6 +85,11 @@ namespace DG.DoctcoD
             public bool invoicesPrintCode = true;
 
             /// <summary>
+            /// Override title for patient treatments
+            /// </summary>
+            public string patientstreatmentsTitle = null;
+
+            /// <summary>
             /// Print code on patient treatments items lines
             /// </summary>
             public bool patientstreatmentsPrintCode = true;
@@ -1134,7 +1139,10 @@ namespace DG.DoctcoD
                 titleTable.DefaultCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
                 titleTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
                 phrase = new Phrase();
-                phrase.Add(new Chunk(_language.patientstreatmentsTitle, b12Font));
+                if (!String.IsNullOrEmpty(_settings.patientstreatmentsTitle))
+                    phrase.Add(new Chunk(_settings.patientstreatmentsTitle, b12Font));
+                else
+                    phrase.Add(new Chunk(_language.patientstreatmentsTitle, b12Font));
                 aCell = new PdfPCell(phrase);
                 aCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
                 aCell.PaddingBottom = 10;

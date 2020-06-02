@@ -639,6 +639,7 @@
     "Form-FormPatients-label_tabPatientsTreatments_filterfulfilled":"FullFilled:",
     "Form-FormPatients-label_tabPatientsTreatments_filterpaid":"Paid:",
     "Form-FormPatients-button_tabPatientsTreatments_filterprint":"Print",
+    "Form-FormPatients-button_tabPatientsTreatments_selectedprint":"Print Selected",
     "Form-FormPatients-dateDataGridViewTextBoxColumn1":"Date",
     "Form-FormPatients-treatmentDataGridViewTextBoxColumn":"Treatment",
     "Form-FormPatients-isfulfilledDataGridViewCheckBoxColumn":"F",
