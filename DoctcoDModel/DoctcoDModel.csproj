@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B00E28DB-3DBE-41D6-AE16-FD8352CE3D2B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DG.DoctcoD.Model</RootNamespace>
+    <AssemblyName>DoctcoDModel</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DGDataModel, Version=1.2.24520.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DG.DataModel.1.2.24520.8\lib\net452\DGDataModel.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DoctcoDModel.cs" />
+    <Compile Include="Entity\addressestypes.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\appointments.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\computedlines.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\contactstypes.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\descriptiontemplatestreatments.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\doctors.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\estimates.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\estimatesfooters.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\estimateslines.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\invoices.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\invoicesfooters.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\invoiceslines.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\medicalrecordstypes.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Model_doctcod.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_doctcod.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Model_doctcod.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Model_doctcod.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_doctcod.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\patients.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\patientsaddresses.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\patientsattachments.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\patientsattachmentstypes.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\patientsattributes.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\patientsattributestypes.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\patientscontacts.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\patientsmedicalrecords.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\patientsnotes.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\patientstreatments.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\payments.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\paymentstypes.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\reports.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\rooms.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\sysdiagrams.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\taxes.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\taxesdeductions.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\treatments.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\treatmentsprices.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\treatmentspriceslists.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\treatmentstypes.cs">
+      <DependentUpon>Model_doctcod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IDoctcoDPrintModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\DescriptiontemplatesTreatmentsRepository.cs" />
+    <Compile Include="Repositories\PatientsAttributesRepository.cs" />
+    <Compile Include="Repositories\PatientsAttributesTypesRepository.cs" />
+    <Compile Include="Repositories\ReportsRepository.cs" />
+    <Compile Include="Repositories\EstimatesFootersRepository.cs" />
+    <Compile Include="Repositories\EstimatesRepository.cs" />
+    <Compile Include="Repositories\EstimatesLinesRepository.cs" />
+    <Compile Include="Repositories\InvoicesRepository.cs" />
+    <Compile Include="Repositories\InvoicesLinesRepository.cs" />
+    <Compile Include="Repositories\PaymentsRepository.cs" />
+    <Compile Include="Repositories\PatientsTreatmentsRepository.cs" />
+    <Compile Include="Repositories\PatientsAttachmentsTypesRepository.cs" />
+    <Compile Include="Repositories\InvoicesFootersRepository.cs" />
+    <Compile Include="Repositories\PatientsAttachmentsRepository.cs" />
+    <Compile Include="Repositories\PatientsNotesRepository.cs" />
+    <Compile Include="Repositories\PatientsMedicalrecordsRepository.cs" />
+    <Compile Include="Repositories\PatientsContactsRepository.cs" />
+    <Compile Include="Repositories\PatientsAddressesRepository.cs" />
+    <Compile Include="Repositories\MedicalrecordsTypesRepository.cs" />
+    <Compile Include="Repositories\ContactsTypesRepository.cs" />
+    <Compile Include="Repositories\PaymentsTypesRepository.cs" />
+    <Compile Include="Repositories\AddressesTypesRepository.cs" />
+    <Compile Include="Repositories\PatientsRepository.cs" />
+    <Compile Include="Repositories\AppointmentsRepository.cs" />
+    <Compile Include="Repositories\ComputedLinesReporitory.cs" />
+    <Compile Include="Repositories\TreatmentsRepository.cs" />
+    <Compile Include="Repositories\TreatmentsPricesRepository.cs" />
+    <Compile Include="Repositories\TreatmentsPricesListsRepository.cs" />
+    <Compile Include="Repositories\TreatmentsTypesRepository.cs" />
+    <Compile Include="Repositories\TaxesDeductionsRepository.cs" />
+    <Compile Include="Repositories\TaxesRepository.cs" />
+    <Compile Include="Repositories\RoomsRepository.cs" />
+    <Compile Include="Repositories\DoctorsRepositorys.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="Entity\Model_doctcod.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model_doctcod.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entity\Model_doctcod.edmx.diagram">
+      <DependentUpon>Model_doctcod.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entity\Model_doctcod.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_doctcod.edmx</DependentUpon>
+      <LastGenOutput>Model_doctcod.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\Model_doctcod.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_doctcod.edmx</DependentUpon>
+      <LastGenOutput>Model_doctcod.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

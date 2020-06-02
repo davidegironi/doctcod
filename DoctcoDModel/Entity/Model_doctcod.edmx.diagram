@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dd5a7085b70343399a213cf795358e21" Name="Diagram1">
+        <EntityTypeShape EntityType="doctcodModel.addressestypes" Width="1.5" PointX="3" PointY="32" />
+        <EntityTypeShape EntityType="doctcodModel.appointments" Width="1.5" PointX="11.25" PointY="26.125" />
+        <EntityTypeShape EntityType="doctcodModel.computedlines" Width="1.5" PointX="3.75" PointY="13" />
+        <EntityTypeShape EntityType="doctcodModel.contactstypes" Width="1.5" PointX="3" PointY="19" />
+        <EntityTypeShape EntityType="doctcodModel.descriptiontemplatestreatments" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="doctcodModel.doctors" Width="1.5" PointX="6" PointY="18.125" />
+        <EntityTypeShape EntityType="doctcodModel.estimates" Width="1.5" PointX="8.25" PointY="20.625" />
+        <EntityTypeShape EntityType="doctcodModel.estimatesfooters" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="doctcodModel.estimateslines" Width="1.5" PointX="13.5" PointY="26.25" />
+        <EntityTypeShape EntityType="doctcodModel.invoices" Width="1.5" PointX="8.25" PointY="30.625" />
+        <EntityTypeShape EntityType="doctcodModel.invoicesfooters" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="doctcodModel.invoiceslines" Width="1.5" PointX="10.5" PointY="34.25" />
+        <EntityTypeShape EntityType="doctcodModel.medicalrecordstypes" Width="1.5" PointX="9" PointY="39" />
+        <EntityTypeShape EntityType="doctcodModel.patients" Width="1.5" PointX="3" PointY="24.75" />
+        <EntityTypeShape EntityType="doctcodModel.patientsaddresses" Width="1.5" PointX="5.25" PointY="26.375" />
+        <EntityTypeShape EntityType="doctcodModel.patientsattachments" Width="1.5" PointX="8.25" PointY="26.375" />
+        <EntityTypeShape EntityType="doctcodModel.patientsattachmentstypes" Width="1.5" PointX="6" PointY="35.875" />
+        <EntityTypeShape EntityType="doctcodModel.patientsattributes" Width="1.5" PointX="11.25" PointY="22.625" />
+        <EntityTypeShape EntityType="doctcodModel.patientsattributestypes" Width="1.5" PointX="9" PointY="18" />
+        <EntityTypeShape EntityType="doctcodModel.patientscontacts" Width="1.5" PointX="5.25" PointY="22.625" />
+        <EntityTypeShape EntityType="doctcodModel.patientsmedicalrecords" Width="1.5" PointX="11.25" PointY="30.625" />
+        <EntityTypeShape EntityType="doctcodModel.patientsnotes" Width="1.5" PointX="5.25" PointY="61.25" />
+        <EntityTypeShape EntityType="doctcodModel.patientstreatments" Width="1.5" PointX="5.25" PointY="30.625" />
+        <EntityTypeShape EntityType="doctcodModel.payments" Width="1.5" PointX="5.25" PointY="64" />
+        <EntityTypeShape EntityType="doctcodModel.paymentstypes" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="doctcodModel.reports" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="doctcodModel.rooms" Width="1.5" PointX="9" PointY="14.875" />
+        <EntityTypeShape EntityType="doctcodModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="doctcodModel.taxes" Width="1.5" PointX="1.5" PointY="13" />
+        <EntityTypeShape EntityType="doctcodModel.taxesdeductions" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="doctcodModel.treatments" Width="1.5" PointX="0.75" PointY="19.25" />
+        <EntityTypeShape EntityType="doctcodModel.treatmentsprices" Width="1.5" PointX="3" PointY="21.75" />
+        <EntityTypeShape EntityType="doctcodModel.treatmentspriceslists" Width="1.5" PointX="0.75" PointY="23.875" />
+        <EntityTypeShape EntityType="doctcodModel.treatmentstypes" Width="1.5" PointX="1.5" PointY="16.625" />
+        <AssociationConnector Association="doctcodModel.FK_patientsaddresses_addressestypes" />
+        <AssociationConnector Association="doctcodModel.FK_appointments_doctors" />
+        <AssociationConnector Association="doctcodModel.FK_appointments_patients" />
+        <AssociationConnector Association="doctcodModel.FK_appointments_rooms" />
+        <AssociationConnector Association="doctcodModel.FK_computedlines_taxes" />
+        <AssociationConnector Association="doctcodModel.FK_patientscontacts_contactstypes" />
+        <AssociationConnector Association="doctcodModel.FK_estimates_doctors" />
+        <AssociationConnector Association="doctcodModel.FK_invoices_doctors" />
+        <AssociationConnector Association="doctcodModel.FK_patientstreatments_doctors" />
+        <AssociationConnector Association="doctcodModel.FK_estimates_invoices" />
+        <AssociationConnector Association="doctcodModel.FK_estimates_patients" />
+        <AssociationConnector Association="doctcodModel.FK_estimateslines_estimates" />
+        <AssociationConnector Association="doctcodModel.FK_estimateslines_patientstreatments" />
+        <AssociationConnector Association="doctcodModel.FK_invoices_patients" />
+        <AssociationConnector Association="doctcodModel.FK_invoiceslines_invoices" />
+        <AssociationConnector Association="doctcodModel.FK_invoiceslines_patientstreatments" />
+        <AssociationConnector Association="doctcodModel.FK_patientsmedicalrecords_medicalrecordstypes" />
+        <AssociationConnector Association="doctcodModel.FK_patients_treatmentspriceslists" />
+        <AssociationConnector Association="doctcodModel.FK_patientsaddresses_patients" />
+        <AssociationConnector Association="doctcodModel.FK_patientsattachments_patients" />
+        <AssociationConnector Association="doctcodModel.FK_patientsattributes_patients" />
+        <AssociationConnector Association="doctcodModel.FK_patientscontacts_patients" />
+        <AssociationConnector Association="doctcodModel.FK_patientsmedicalrecords_patients" />
+        <AssociationConnector Association="doctcodModel.FK_patientsnotes_patients" />
+        <AssociationConnector Association="doctcodModel.FK_patientstreatments_patients" />
+        <AssociationConnector Association="doctcodModel.FK_payments_patients" />
+        <AssociationConnector Association="doctcodModel.FK_patientsattachments_patientsattachmentstypes" />
+        <AssociationConnector Association="doctcodModel.FK_patientsattributes_patientsattributestypes" />
+        <AssociationConnector Association="doctcodModel.FK_patientstreatments_treatments" />
+        <AssociationConnector Association="doctcodModel.FK_treatments_taxes" />
+        <AssociationConnector Association="doctcodModel.FK_treatments_treatmentstypes" />
+        <AssociationConnector Association="doctcodModel.FK_treatmentsprices_treatments" />
+        <AssociationConnector Association="doctcodModel.FK_treatmentsprices_treatmentspriceslists" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
