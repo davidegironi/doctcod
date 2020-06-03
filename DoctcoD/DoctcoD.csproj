@@ -81,8 +81,8 @@
     <Reference Include="ExcelLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelLibrary.1.2011.7.31\lib\ExcelLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="MiniHTMLTextBox, Version=1.0.24602.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DG.MiniHTMLTextBox.1.0.24602.1\lib\net40\MiniHTMLTextBox.dll</HintPath>
+    <Reference Include="MiniHTMLTextBox, Version=1.0.24603.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DG.MiniHTMLTextBox.1.0.24603.2\lib\net40\MiniHTMLTextBox.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />

@@ -53,8 +53,14 @@ EOT;
 $pt_array = patienttreatments();
 ?>
 
+<style>
+.dhtmlcontnent>p {
+  margin: 0;
+  padding: 0;
+}
+</style>
 
-</form>
+<form>
   <div class="form-group">
     <label><?php echo $lang['PATIENTSTREATMENTS_SELECTPATIENT'] ?></label>
     <select class="form-control" onChange="location='?page=<?php echo $_GET['page'] ?>&patientid='+this.value">
@@ -98,7 +104,7 @@ if(isset($_GET['patientid'])) {
           <div class="form-group">
             <label><?php echo $lang['PATIENTSTREATMENTS_TREATMENT'] ?></label>
             <div class="panel panel-default">
-              <div class="panel-body">
+              <div class="panel-body dhtmlcontnent">
                 <?php echo $pt['treatment']; ?>
               </div>
             </div>
