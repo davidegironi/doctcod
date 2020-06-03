@@ -38,6 +38,7 @@
   "patientstreatmentsDate": "Date",
   "patientstreatmentsPatienttext": "Patient",
   "patientstreatmentsItemsCodeTH": "Code",
+  "patientstreatmentsItemsCreationdateTH": "Date",
   "patientstreatmentsItemsDescriptionTH": "Description",
   "patientstreatmentsFootertext": "",
   "buildfileerrorMessage": "Errors happened building the file."

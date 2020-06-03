@@ -3,5 +3,6 @@
   "invoicesPrintCode": true,
   "patientstreatmentsTitle": null,
   "patientstreatmentsPrintCode": false,
-  "patientstreatmentsPrintDoctor": true
+  "patientstreatmentsPrintDoctor": true,
+  "patientstreatmentsPrintCreationdate":  true
 }

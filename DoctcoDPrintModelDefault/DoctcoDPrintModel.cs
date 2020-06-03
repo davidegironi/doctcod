@@ -64,6 +64,7 @@ namespace DG.DoctcoD
             public string patientstreatmentsDate = "Date";
             public string patientstreatmentsPatienttext = "Patient";
             public string patientstreatmentsItemsCodeTH = "Code";
+            public string patientstreatmentsItemsCreationdateTH = "Date";
             public string patientstreatmentsItemsDescriptionTH = "Description";
             public string patientstreatmentsFootertext = "";
             public string buildfileerrorMessage = "Errors happened building the file.";
@@ -98,6 +99,11 @@ namespace DG.DoctcoD
             /// Print doctor text on patient treatments
             /// </summary>
             public bool patientstreatmentsPrintDoctor = true;
+
+            /// <summary>
+            /// Print creationdate on patient treatments items lines
+            /// </summary>
+            public bool patientstreatmentsPrintCreationdate = true;
         }
 
         /// <summary>
@@ -1222,19 +1228,57 @@ namespace DG.DoctcoD
 
                 //itemsTable
                 if (_settings.patientstreatmentsPrintCode)
-                    itemsTable = new PdfPTable(new float[] { 1, 1 });
+                {
+                    if (_settings.patientstreatmentsPrintCreationdate &&
+                        (patientstreatmentsl.Select(r => r.patientstreatments_creationdate.Date).Distinct().Count() > 1 ||
+                        patientstreatmentsl.Select(r => r.patientstreatments_creationdate.Date).FirstOrDefault() != DateTime.Now.Date))
+                        itemsTable = new PdfPTable(new float[] { 1, 1, 1 });
+                    else
+                        itemsTable = new PdfPTable(new float[] { 1, 1 });
+                }
                 else
-                    itemsTable = new PdfPTable(new float[] { 1 });
+                {
+                    if (_settings.patientstreatmentsPrintCreationdate &&
+                        (patientstreatmentsl.Select(r => r.patientstreatments_creationdate.Date).Distinct().Count() > 1 ||
+                        patientstreatmentsl.Select(r => r.patientstreatments_creationdate.Date).FirstOrDefault() != DateTime.Now.Date))
+                        itemsTable = new PdfPTable(new float[] { 1, 1 });
+                    else
+                        itemsTable = new PdfPTable(new float[] { 1 });
+                }
                 itemsTable.TotalWidth = PageSize.A4.Width - document.RightMargin - document.LeftMargin;
                 itemsTable.DefaultCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
                 itemsTable.DefaultCell.HorizontalAlignment = Element.ALIGN_LEFT;
                 if (_settings.patientstreatmentsPrintCode)
-                    itemsTable.SetTotalWidth(new float[] { 70, itemsTable.TotalWidth - 70 });
+                {
+                    if (_settings.patientstreatmentsPrintCreationdate &&
+                        (patientstreatmentsl.Select(r => r.patientstreatments_creationdate.Date).Distinct().Count() > 1 ||
+                        patientstreatmentsl.Select(r => r.patientstreatments_creationdate.Date).FirstOrDefault() != DateTime.Now.Date))
+                        itemsTable.SetTotalWidth(new float[] { 70, 80, itemsTable.TotalWidth - 70 - 80 });
+                    else
+                        itemsTable.SetTotalWidth(new float[] { 70, itemsTable.TotalWidth - 70 });
+                }
                 else
-                    itemsTable.SetTotalWidth(new float[] { itemsTable.TotalWidth });
+                {
+                    if (_settings.patientstreatmentsPrintCreationdate &&
+                        (patientstreatmentsl.Select(r => r.patientstreatments_creationdate.Date).Distinct().Count() > 1 ||
+                        patientstreatmentsl.Select(r => r.patientstreatments_creationdate.Date).FirstOrDefault() != DateTime.Now.Date))
+                        itemsTable.SetTotalWidth(new float[] { 80, itemsTable.TotalWidth - 80 });
+                    else
+                        itemsTable.SetTotalWidth(new float[] { itemsTable.TotalWidth });
+                }
                 if (_settings.patientstreatmentsPrintCode)
                 {
                     aCell = new PdfPCell(new Paragraph(_language.patientstreatmentsItemsCodeTH, b10Font));
+                    aCell.Border = iTextSharp.text.Rectangle.BOTTOM_BORDER;
+                    aCell.HorizontalAlignment = Element.ALIGN_LEFT;
+                    aCell.PaddingBottom = 5;
+                    itemsTable.AddCell(aCell);
+                }
+                if (_settings.patientstreatmentsPrintCreationdate &&
+                        (patientstreatmentsl.Select(r => r.patientstreatments_creationdate.Date).Distinct().Count() > 1 ||
+                        patientstreatmentsl.Select(r => r.patientstreatments_creationdate.Date).FirstOrDefault() != DateTime.Now.Date))
+                {
+                    aCell = new PdfPCell(new Paragraph(_language.patientstreatmentsItemsCreationdateTH, b10Font));
                     aCell.Border = iTextSharp.text.Rectangle.BOTTOM_BORDER;
                     aCell.HorizontalAlignment = Element.ALIGN_LEFT;
                     aCell.PaddingBottom = 5;
@@ -1275,11 +1319,22 @@ namespace DG.DoctcoD
                             itemsTable.AddCell(aCell);
                         }
                     }
+                    if (_settings.patientstreatmentsPrintCreationdate &&
+                        (patientstreatmentsl.Select(r => r.patientstreatments_creationdate.Date).Distinct().Count() > 1 ||
+                        patientstreatmentsl.Select(r => r.patientstreatments_creationdate.Date).FirstOrDefault() != DateTime.Now.Date))
+                    {
+                        aCell = new PdfPCell(new Paragraph(patientstreatment.patientstreatments_creationdate.ToShortDateString(), n10Font));
+                        aCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                        aCell.HorizontalAlignment = Element.ALIGN_LEFT;
+                        itemsTable.AddCell(aCell);
+                    }
                     //add description as html
                     aCell = new PdfPCell(new Paragraph(patientstreatment.patientstreatments_description, n10Font));
                     aCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
                     aCell.HorizontalAlignment = Element.ALIGN_LEFT;
-                    List<IElement> htmlarraylist = iTextSharp.text.html.simpleparser.HTMLWorker.ParseToList(new StringReader(patientstreatment.patientstreatments_description), new iTextSharp.text.html.simpleparser.StyleSheet());
+                    List<IElement> htmlarraylist = iTextSharp.text.html.simpleparser.HTMLWorker.ParseToList(
+                        new StringReader(patientstreatment.patientstreatments_description.Replace("<P>&nbsp;</P>", "<BR>")),
+                        new iTextSharp.text.html.simpleparser.StyleSheet());
                     for (int k = 0; k < htmlarraylist.Count; k++)
                     {
                         var ele = (IElement)htmlarraylist[k];
