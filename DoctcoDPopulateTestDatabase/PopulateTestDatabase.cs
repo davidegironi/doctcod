@@ -95,6 +95,7 @@ EXEC sp_msforeachtable 'DBCC CHECKIDENT(''?'', RESEED, 0)'; DECLARE @max int; SE
             int treatmentspriceslistsNum = 2;
             int treatmentsNum = 100;
             bool generatedatafiles = true;
+            DateTime now = DateTime.Now;
 
             Console.WriteLine("Add AddressesTypes...");
             addressestypes addressestypesHome = new addressestypes()
@@ -408,7 +409,7 @@ EXEC sp_msforeachtable 'DBCC CHECKIDENT(''?'', RESEED, 0)'; DECLARE @max int; SE
                         _doctcodModel.PatientsNotes.Add(new patientsnotes()
                         {
                             patients_id = patient.patients_id,
-                            patientsnotes_date = GetRandomDate(new DateTime(2013, 1, 1), new DateTime(2015, 12, 31)),
+                            patientsnotes_date = GetRandomDate(new DateTime(now.AddYears(-1).Year, 1, 1), now),
                             patientsnotes_text = BuildRandomString(_r.Next(10, 200))
                         });
                     } while (_r.Next(0, 100) > 50);
@@ -440,7 +441,7 @@ EXEC sp_msforeachtable 'DBCC CHECKIDENT(''?'', RESEED, 0)'; DECLARE @max int; SE
                             patients_id = patient.patients_id,
                             patientsattachmentstypes_id = patientsattachmentstypes[_r.Next(patientsattachmentstypes.Count())].patientsattachmentstypes_id,
                             patientsattachments_value = BuildRandomString(_r.Next(10, 50)),
-                            patientsattachments_date = GetRandomDate(new DateTime(2013, 1, 1), new DateTime(2015, 12, 31)),
+                            patientsattachments_date = GetRandomDate(new DateTime(now.AddYears(-1).Year, 1, 1), now),
                             patientsattachments_filename = filename
                         });
 
@@ -455,7 +456,7 @@ EXEC sp_msforeachtable 'DBCC CHECKIDENT(''?'', RESEED, 0)'; DECLARE @max int; SE
             {
                 do
                 {
-                    DateTime from = GetRandomDate(new DateTime(2013, 1, 1), new DateTime(2015, 12, 31));
+                    DateTime from = GetRandomDate(new DateTime(now.AddYears(-1).Year, 1, 1), now);
                     from = new DateTime(from.Year, from.Month, from.Day, _r.Next(8, 19), (_r.Next(0, 100) > 50 ? 0 : 30), 0);
                     DateTime to = (_r.Next(0, 100) > 50 ? from.AddMinutes(30) : from.AddHours(_r.Next(1, 2)));
                     _doctcodModel.Appointments.Add(new appointments()
@@ -476,7 +477,7 @@ EXEC sp_msforeachtable 'DBCC CHECKIDENT(''?'', RESEED, 0)'; DECLARE @max int; SE
                 do
                 {
                     treatments treatment = treatments[_r.Next(treatments.Count())];
-                    DateTime creationdate = GetRandomDate(new DateTime(2013, 1, 1), new DateTime(2015, 12, 31));
+                    DateTime creationdate = GetRandomDate(new DateTime(now.AddYears(-1).Year, 1, 1), now);
                     _doctcodModel.PatientsTreatments.Add(new patientstreatments()
                     {
                         doctors_id = doctorsTest.doctors_id,
@@ -518,7 +519,7 @@ EXEC sp_msforeachtable 'DBCC CHECKIDENT(''?'', RESEED, 0)'; DECLARE @max int; SE
             {
                 do
                 {
-                    DateTime date = GetRandomDate(new DateTime(2013, 1, 1), new DateTime(2015, 12, 31));
+                    DateTime date = GetRandomDate(new DateTime(now.AddYears(-1).Year, 1, 1), now);
                     estimates estimate = new estimates()
                     {
                         estimates_date = date,
@@ -566,7 +567,7 @@ EXEC sp_msforeachtable 'DBCC CHECKIDENT(''?'', RESEED, 0)'; DECLARE @max int; SE
             {
                 do
                 {
-                    DateTime date = GetRandomDate(new DateTime(2013, 1, 1), new DateTime(2015, 12, 31));
+                    DateTime date = GetRandomDate(new DateTime(now.AddYears(-1).Year, 1, 1), now);
                     invoices invoice = new invoices()
                     {
                         invoices_date = date,
