@@ -6,10 +6,9 @@ $solutionName = "DoctcoD"
 $versionMajor = "1"
 $versionMinor = "0"
 $versionBuild = GetVersionBuild
-$versionRevision = "1"
+$versionRevision = "2"
 #build version number
-$assemblyVersion = GetVersion $versionMajor $versionMinor $versionBuild $versionRevision
-$fileVersion = $assemblyVersion
+$version = GetVersion $versionMajor $versionMinor $versionBuild $versionRevision
 
 #base folder for of the solution
 $baseDir  = Resolve-Path .\..\
@@ -69,12 +68,10 @@ $builds = @(
 		#unit tests to run
 		Tests = @(
 			@{
-				Name = "DoctcoDModel.Test";
-				TestDll = "DoctcoDModel.Test.dll"
+				Name = "DoctcoDModel.Test"
 			},
 			@{
-				Name = "DoctcoDHelpers.Test";
-				TestDll = "DoctcoDHelpers.Test.dll"
+				Name = "DoctcoDHelpers.Test"
 			}
 		);
 		#commands to run before packaging of the release source
